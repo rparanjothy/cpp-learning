@@ -42,6 +42,22 @@ int main()
     int *bPtr;
     // point bPtr to the address of var x
     bPtr = &x;
-
+    // bPtr = 10; // Error bc you are putting int in a pointer type
+    *bPtr = 98; // put 98 in the address stored by bPtr
+    cout << "bPtr is : " << bPtr << " value in this address is " << *bPtr << " var x is " << x << endl;
+    cout << "\npointing " << bPtr << " to var y" << endl;
+    bPtr = &y;
+    cout << "bPtr is : " << bPtr << " value in this address is " << *bPtr << " var y is " << y << endl;
+    *bPtr = 97;
+    cout << "After assign via pointer" << endl;
+    cout << "bPtr is : " << bPtr << " value in this address is " << *bPtr << " var y is " << y << endl;
+    int m, n, b, v;
+    cout << &m << endl;
+    cout << &n << endl;
+    cout << &b << endl;
+    cout << &v << endl;
+    cout << &m - &n << endl;
+    cout << &n - &b << endl;
+    cout << &n - &v << endl;
     return 0;
 }
