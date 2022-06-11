@@ -1,7 +1,24 @@
+// Ram Paranjothy
+// June 11 2022
 #include <iostream>
 
 using std::cout;
 using std::endl;
+
+void hi()
+{
+    cout << "Greetings..." << endl;
+}
+
+void bye()
+{
+    cout << "Bye Bye!!..." << endl;
+}
+
+void runFn(void (*x)()) // need the return and the args of the passed in function
+{
+    x();
+}
 
 int main()
 {
@@ -66,6 +83,34 @@ int main()
     {
         cout << &m + a << " : " << *(&m + a) << endl;
     }
+    cout << "======================" << endl;
+
+    void *vPtr;
+    cout << vPtr << endl;
+    cout << &vPtr << endl;
+    cout << *&vPtr << endl;
+    cout << sizeof(*&vPtr) << endl;
+    cout << sizeof(&vPtr) << endl;
+    cout << sizeof(vPtr) << endl;
+    cout << "======================" << endl;
+
+    cout << sizeof(*&a) << endl;
+    cout << sizeof(&a) << endl;
+    cout << sizeof(a) << endl;
+
+    cout << "======================" << endl;
+    cout << "Function pointers" << endl;
+    cout << "======================" << endl;
+    hi();
+    // Pointer to a function => wrap the fn name in () and put a * in front of the function name,
+    (*hi)();
+    cout << "hi() pointer is :" << (*hi) << endl; // not sure why it prints 1.
+    // sorta kinda like lambda
+    void (*xx)() = hi;
+    runFn(xx);
+    // pass the pointer of the function to run
+    runFn((*hi));
+    runFn((*bye));
 
     return 0;
 }
