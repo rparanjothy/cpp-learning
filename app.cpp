@@ -59,5 +59,13 @@ int main()
     cout << &m - &n << endl;
     cout << &n - &b << endl;
     cout << &n - &v << endl;
+    cout << &n + 1 << endl;
+    cout << &n + 2 << endl;
+
+    for (int a = 1; a <= 5; a++)
+    {
+        cout << &m + a << " : " << *(&m + a) << endl;
+    }
+
     return 0;
 }
